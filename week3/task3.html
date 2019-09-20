@@ -2,7 +2,18 @@
 <head>
 <style>
 .container{background:url(http://backgroundlabs.com/wp-content/uploads/2013/04/subtle-mosaic-pattern.png
-)}
+); display: flex; align-items: center; justify-content:center;flex-direction: column;}
+header{}
+nav{display: flex;justify-content:center;}
+nav a{background-color:gray; flex-grow: 0;text-decoration: none;color: black;font-size: 24px;width: 145px;text-align: center;}
+.logo_part{display: flex;}
+.search{display: flex;justify-content: center;align-items: center;margin-left: auto;margin-right:auto; }
+footer{width: 580px;color: white;background-color: black;height: 40px;display: flex;justify-content: center;align-items: center;}
+.cards{display: flex;flex-wrap: wrap;margin-left: 500px;margin-right: 500px;justify-content: space-around;padding: 10px;}
+.card{border: 1px solid red;border-radius: 10px;height: 200px;width: 150px;display: flex;flex-direction: column;background-color: dodgerblue;align-items: center;justify-content: center;margin: 5px;}
+.card a{text-decoration: none;color: white;justify-content: center;}
+.card .price{font-weight: bold;font-size: 18px;}
+.active:hover {background-color: red;color: white;}
 </style>
 </head>
 <body>
