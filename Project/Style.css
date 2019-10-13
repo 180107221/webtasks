@@ -1,0 +1,44 @@
+body{
+	margin: 0;
+}
+header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: brown;
+	color: white;
+	height: 50px;
+}
+
+header p{
+	font-family: "Lobster",display;
+	font-size: 35px;
+}
+
+.LeftPart{
+	float: left;
+	width: 25%;
+}
+
+.Function{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+	margin-left: 25%;
+	margin-top: 10px;
+}
+
+.Function a{
+	text-decoration: none;
+	font-family: "Ranga",display;
+	font-size: 26px;
+	color: black;
+}
+
+.Function a:hover{
+	background-color: rgba(0,0,0,0.5);
+	margin-left: 10px;
+	background-color: brown;
+	color: white;
+}

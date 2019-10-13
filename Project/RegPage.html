@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Ranga&display=swap" rel="stylesheet">
+
+	<style >
+		body{
+		margin: 0;
+	}
+header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: brown;
+	color: white;
+	height: 50px;
+}
+
+header p{
+	font-family: "Lobster",display;
+	font-size: 35px;
+}
+
+.Top{
+	position: relative;
+	display: flex;
+	width: 320px;
+	flex-direction: column;
+	margin-left: 35%;
+	margin-top: 20px;
+	border-style: inset;
+}
+
+.Top input{
+	position: absolute;
+	right: 0;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.Top a{
+	font-family: "Lobster",display;
+	text-decoration: none;
+	color: black;
+}
+.Top p{
+	font-family: "Lobster",display;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.Top button{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+	</style>
+
+</head>
+<body>
+	<header>
+		<p>Verse</p>
+	</header>
+
+	<div class="Top">
+		<form name="form" action="database.php" method="get">
+		<p> First Name <input type="text" name="First Name" id="name"></p>
+		<p> Last Name <input type="text" name="Last Name" id="lastname"></p>
+		<p> Year <input type="text" name="Year" id="year"></p>
+		<p> Email address <input type="text" name="Email address" id="email"></p>
+		<p> Password <input type="text" name="Password" id="password"></p>
+		<p> Password again <input type="text" name="Password again" id="password1"></p></form>
+		<button> Registration </button>
+	</div>
+
+</body>
+</html>
