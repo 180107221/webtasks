@@ -18,32 +18,33 @@ for(var i = 0; i < countries.length; i++) {
 for(let j of option){
     j.addEventListener('change', ()=>{
         let cities = cities_by_country[j.value];
-            for(let q of option1){
-                if(q.length > 1){
-                    for(let w = 0; w <= cities.length; w++){
-                        q.remove(cities[w]);
-                    }
-                    var element1 = document.createElement('option');
-                    element1.textContent = "Select City";
-                    select1.appendChild(element1);
-                    for(let k = 0; k < cities.length; k++){
-                        var city = cities[k];
-                        var element1 = document.createElement('option');
-                        element1.textContent = city;
-                        element1.value = city;
-                        select1.appendChild(element1); 
-                    }
+        if(j.selectedIndex == 0){
+            for( let y of option1){
+                for(let con = 0; con < 4; con++){
+                    y.remove(option1[con]);
                 }
-                else{
-                    for(let k = 0; k < cities.length; k++){
-                        var city = cities[k];
-                        var element1 = document.createElement('option');
-                        element1.textContent = city;
-                        element1.value = city;
-                        select1.appendChild(element1);
-                    }
-                }
+                var element1 = document.createElement('option');
+                element1.textContent = "Select City";
+                select1.appendChild(element1);
             }
+        }
+        else{
+            for( let x of option1){
+                for(let con = 0; con <= cities.length; con++){
+                    x.remove(cities[con]);
+                }
+                var element2 = document.createElement('option');
+                element2.textContent = "Select City";
+                select1.appendChild(element2);
+                for(let con1 = 0; con1 < cities.length; con1++){
+                    let element3 = document.createElement('option');
+                    element3.textContent = cities[con1];
+                    element3.value = cities[con1];
+                    select1.appendChild(element3);
+                }
+
+            }
+        }
         
     });
 }
