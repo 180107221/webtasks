@@ -1,0 +1,39 @@
+<html>
+<head>
+<style>
+#news{
+	border:1px solid red;
+	width:400px;
+	height:300px;
+}
+</style>
+</head>
+<body>
+
+<div id="news"></div>
+<button id="sport">Load Sport news</button>
+<button id="politics">Load Politics news</button>
+<button id="bussiness">Load Bussiness news</button>
+
+
+<script>
+	document.getElementById('sport').addEventListener("click", () => {loadDoc("sportNews.txt")});
+	document.getElementById('politics').addEventListener("click", () => {loadDoc("politicsNews.txt")});
+	document.getElementById('bussiness').addEventListener("click", () => {loadDoc("bussinessNews.txt")});
+
+	let page = document.getElementById('news');
+
+	function loadDoc(url){
+		fetch(url).then(function(response){
+			response.text().then(function(text){
+				page.innerHTML = text;
+			});
+		});
+	}
+
+
+
+
+</script>
+</body>
+</html>

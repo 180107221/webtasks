@@ -1,0 +1,2 @@
+[ {'index': 0, 'name': 'Toyota Camry 50', 'price': 50000}, {'index': 1, 'name': 'Toyota Camry', 'price': 40000},
+{'index': 2, 'name': 'Volkswagen Touareg', 'price': 35000}, {'index': 3, 'name': 'Mercedes C100', 'price': 45000},]

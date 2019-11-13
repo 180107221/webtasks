@@ -1,0 +1,2 @@
+<h1>Dow Jones index has fallen</h1>
+<p>Dow Jones index has fallen, because of prices for petrol.</p>
