@@ -21,90 +21,322 @@ $cars = [["maker"=>"Toyota","model"=>"Carina","year"=>2001,"price"=>20000,"image
 
 if(isset($_REQUEST['maker'])){
     if($_REQUEST['maker']=="Toyota"){
-        for($x = 0; $x < 8; $x++){
-            if($cars[$x]['maker'] == "Toyota"){
-                $maker = $cars[$x]['maker'];
-                $model = $cars[$x]['model'];
-                $image = $cars[$x]['image'];
-                $year = $cars[$x]['year'];
-                $price = $cars[$x]['price'];
-                $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
-                echo $card;
+        if(isset($_REQUEST['price'])){
+            if(isset($_REQUEST['year'])){
+                for($x = 0; $x < 8; $x++){
+                    if(($cars[$x]['maker'] == "Toyota") && ($cars[$x]['price'] > (int) $_REQUEST['price']) && ($cars[$x]['year'] < (int) $_REQUEST['year'])){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+            else{
+                for($x = 0; $x < 8; $x++){
+                    if($cars[$x]['maker'] == "Toyota" && $cars[$x]['price'] > (int) $_REQUEST['price']){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+        }
+        elseif(isset($_REQUEST['year'])){
+            if(isset($_REQUEST['price'])){
+                for($x = 0; $x < 8; $x++){
+                    if(($cars[$x]['maker'] == "Toyota") && ($cars[$x]['price'] > (int) $_REQUEST['price']) && ($cars[$x]['year'] < (int) $_REQUEST['year'])){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+            else{
+                for($x = 0; $x < 8; $x++){
+                    if($cars[$x]['maker'] == "Toyota" && $cars[$x]['year'] < (int) $_REQUEST['year']){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+        }
+        else{
+            for($x = 0; $x < 8; $x++){
+                if($cars[$x]['maker'] == "Toyota"){
+                    $maker = $cars[$x]['maker'];
+                    $model = $cars[$x]['model'];
+                    $image = $cars[$x]['image'];
+                    $year = $cars[$x]['year'];
+                    $price = $cars[$x]['price'];
+                    $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                    echo $card;
+                }
             }
         }
     }
+
+
     if($_REQUEST['maker']=="BMW"){
-        for($x = 0; $x < 8; $x++){
-            if($cars[$x]['maker'] == "BMW"){
-                $maker = $cars[$x]['maker'];
-                $model = $cars[$x]['model'];
-                $image = $cars[$x]['image'];
-                $year = $cars[$x]['year'];
-                $price = $cars[$x]['price'];
-                $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
-                echo $card;
+        if(isset($_REQUEST['price'])){
+            if(isset($_REQUEST['year'])){
+                for($x = 0; $x < 8; $x++){
+                    if(($cars[$x]['maker'] == "BMW") && ($cars[$x]['price'] > (int) $_REQUEST['price']) && ($cars[$x]['year'] < (int) $_REQUEST['year'])){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+            else{
+                for($x = 0; $x < 8; $x++){
+                    if($cars[$x]['maker'] == "BMW" && $cars[$x]['price'] > (int) $_REQUEST['price']){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+        }
+        elseif(isset($_REQUEST['year'])){
+            if(isset($_REQUEST['price'])){
+                for($x = 0; $x < 8; $x++){
+                    if(($cars[$x]['maker'] == "BMW") && ($cars[$x]['price'] > (int) $_REQUEST['price']) && ($cars[$x]['year'] < (int) $_REQUEST['year'])){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+            else{
+                for($x = 0; $x < 8; $x++){
+                    if($cars[$x]['maker'] == "BMW" && $cars[$x]['year'] < (int) $_REQUEST['year']){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+        }
+        else{
+            for($x = 0; $x < 8; $x++){
+                if($cars[$x]['maker'] == "BMW"){
+                    $maker = $cars[$x]['maker'];
+                    $model = $cars[$x]['model'];
+                    $image = $cars[$x]['image'];
+                    $year = $cars[$x]['year'];
+                    $price = $cars[$x]['price'];
+                    $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                    echo $card;
+                }
             }
         }
     }
-    if($_REQUEST['maker']=="Lada"){
-        for($x = 0; $x < 8; $x++){
-            if($cars[$x]['maker'] == "Lada"){
-                $maker = $cars[$x]['maker'];
-                $model = $cars[$x]['model'];
-                $image = $cars[$x]['image'];
-                $year = $cars[$x]['year'];
-                $price = $cars[$x]['price'];
-                $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
-                echo $card;
-            }
-        }
-    }
+
+
     if($_REQUEST['maker']=="Audi"){
-        for($x = 0; $x < 8; $x++){
-            if($cars[$x]['maker'] == "Audi"){
-                $maker = $cars[$x]['maker'];
-                $model = $cars[$x]['model'];
-                $image = $cars[$x]['image'];
-                $year = $cars[$x]['year'];
-                $price = $cars[$x]['price'];
-                $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
-                echo $card;
+        if(isset($_REQUEST['price'])){
+            if(isset($_REQUEST['year'])){
+                for($x = 0; $x < 8; $x++){
+                    if(($cars[$x]['maker'] == "Audi") && ($cars[$x]['price'] > (int) $_REQUEST['price']) && ($cars[$x]['year'] < (int) $_REQUEST['year'])){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
             }
+            else{
+                for($x = 0; $x < 8; $x++){
+                    if($cars[$x]['maker'] == "Audi" && $cars[$x]['price'] > (int) $_REQUEST['price']){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+        }
+        elseif(isset($_REQUEST['year'])){
+            if(isset($_REQUEST['price'])){
+                for($x = 0; $x < 8; $x++){
+                    if(($cars[$x]['maker'] == "Audi") && ($cars[$x]['price'] > (int) $_REQUEST['price']) && ($cars[$x]['year'] < (int) $_REQUEST['year'])){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+            else{
+                for($x = 0; $x < 8; $x++){
+                    if($cars[$x]['maker'] == "Audi" && $cars[$x]['year'] < (int) $_REQUEST['year']){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+        }
+        else{
+            for($x = 0; $x < 8; $x++){
+                if($cars[$x]['maker'] == "Audi"){
+                    $maker = $cars[$x]['maker'];
+                    $model = $cars[$x]['model'];
+                    $image = $cars[$x]['image'];
+                    $year = $cars[$x]['year'];
+                    $price = $cars[$x]['price'];
+                    $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                    echo $card;
+                }
+            }
+        }
+    }
+
+
+    if($_REQUEST['maker']=="Lada"){
+        if(isset($_REQUEST['price'])){
+            if(isset($_REQUEST['year'])){
+                for($x = 0; $x < 8; $x++){
+                    if(($cars[$x]['maker'] == "Lada") && ($cars[$x]['price'] > (int) $_REQUEST['price']) && ($cars[$x]['year'] < (int) $_REQUEST['year'])){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+            else{
+                for($x = 0; $x < 8; $x++){
+                    if($cars[$x]['maker'] == "Lada" && $cars[$x]['price'] > (int) $_REQUEST['price']){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+        }
+        elseif(isset($_REQUEST['year'])){
+            if(isset($_REQUEST['price'])){
+                for($x = 0; $x < 8; $x++){
+                    if(($cars[$x]['maker'] == "Lada") && ($cars[$x]['price'] > (int) $_REQUEST['price']) && ($cars[$x]['year'] < (int) $_REQUEST['year'])){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+            else{
+                for($x = 0; $x < 8; $x++){
+                    if($cars[$x]['maker'] == "Lada" && $cars[$x]['year'] < (int) $_REQUEST['year']){
+                        $maker = $cars[$x]['maker'];
+                        $model = $cars[$x]['model'];
+                        $image = $cars[$x]['image'];
+                        $year = $cars[$x]['year'];
+                        $price = $cars[$x]['price'];
+                        $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                        echo $card;
+                    }
+                }
+            }
+        }
+        else{
+            for($x = 0; $x < 8; $x++){
+                if($cars[$x]['maker'] == "Lada"){
+                    $maker = $cars[$x]['maker'];
+                    $model = $cars[$x]['model'];
+                    $image = $cars[$x]['image'];
+                    $year = $cars[$x]['year'];
+                    $price = $cars[$x]['price'];
+                    $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+                    echo $card;
+                }
+            }
+        }
+    }         
+}
+elseif(isset($_REQUEST['year'])){
+    for($x = 0; $x < 8; $x++){
+        if($cars[$x]['year'] < 2012){
+            $maker = $cars[$x]['maker'];
+            $model = $cars[$x]['model'];
+            $image = $cars[$x]['image'];
+            $year = $cars[$x]['year'];
+            $price = $cars[$x]['price'];
+            $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+            echo $card;
         }
     }
 }
-
-else{
-    if(isset($_REQUEST['year'])){
-        for($x = 0; $x < 8; $x++){
-            if($cars[$x]['year'] < 2012){
-                $maker = $cars[$x]['maker'];
-                $model = $cars[$x]['model'];
-                $image = $cars[$x]['image'];
-                $year = $cars[$x]['year'];
-                $price = $cars[$x]['price'];
-                $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
-                echo $card;
-            }
-        }
-    }
-    if(isset($_REQUEST['price'])){
-        for($x = 0; $x < 8; $x++){
-            if($cars[$x]['price'] > 20000){
-                $maker = $cars[$x]['maker'];
-                $model = $cars[$x]['model'];
-                $image = $cars[$x]['image'];
-                $year = $cars[$x]['year'];
-                $price = $cars[$x]['price'];
-                $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
-                echo $card;
-            }
+elseif(isset($_REQUEST['price'])){
+    for($x = 0; $x < 8; $x++){
+        if($cars[$x]['price'] > 20000){
+            $maker = $cars[$x]['maker'];
+            $model = $cars[$x]['model'];
+            $image = $cars[$x]['image'];
+            $year = $cars[$x]['year'];
+            $price = $cars[$x]['price'];
+            $card = "<div class='card'><image width='150px' height='100px' src='$image'> <div class='description'> <div class='title'> $maker $model</div> <div class='price'> $price$</div><div class='year'> $year years</div> </div> </div>";
+            echo $card;
         }
     }
 }
-
-
-
 ?>
 </div>
 <div class="menu">
