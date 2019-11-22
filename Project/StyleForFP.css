@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+}
+header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: brown;
+	color: white;
+	height: 50px;
+}
+
+header p{
+	font-family: "Lobster",display;
+	font-size: 35px;
+}
+
+form{
+	display: flex;
+	justify-content: center;
+}
+
+.form{
+	display: flex;
+	flex-direction: column;
+}
+
+form a{
+	margin-left: 10px;
+}
+
+
+div p{
+	font-family: "Lobster",display;
+}
+
+button{
+	width: 100px;
+	height: 20px;
+}
+
+.Top{
+	display: flex;
+	flex-direction: column;
+}
+

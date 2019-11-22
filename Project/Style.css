@@ -38,7 +38,6 @@ header p{
 
 .Function a:hover{
 	background-color: rgba(0,0,0,0.5);
-	margin-left: 10px;
 	background-color: brown;
 	color: white;
 }
