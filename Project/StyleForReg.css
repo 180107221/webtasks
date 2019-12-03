@@ -1,0 +1,27 @@
+#message {
+    display:none;
+}
+
+.valid {
+    color: green;
+}
+
+.valid:before {
+    content: "✔";
+}
+
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    content: "✖";
+}
+
+#message1{
+    display: none;
+}
+
+#message1 p{
+    color: red;
+}
