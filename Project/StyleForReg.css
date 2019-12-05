@@ -25,3 +25,11 @@
 #message1 p{
     color: red;
 }
+
+#message2{
+    display: none;
+}
+
+#message2 p{
+    color: red;
+}

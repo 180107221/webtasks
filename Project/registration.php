@@ -51,17 +51,12 @@
         <div id="message1">
             <p> Passwords do not match </p>
         </div>
-        <button name="submit" type="submit" onclick="onCheck()"> Registration</button>
+        <div id="message2">
+            <p> Invalid account format </p>
+        </div>
+        <button name="submit" type="submit"> Registration</button>
     </div>
 </form>
-
-<?php 
-    $mycon = mysqli_connect('localhost','root','','verse');
-    mysqli_select_db($mycon,'verse');
-    $query = "SELECT * FROM `verse`";
-    $res = mysqli_query($mycon,$query);
-    mysqli_close($mycon);
-?>
 
 <script type="text/javascript">
     function days_this_month(){
@@ -186,16 +181,67 @@ function onClick(){
     }
 }
 
-function onCheck(){
-    let name = document.getElementById('name').value;
-    let lastname = document.getElementById('lastname').value;
-    let email = document.getElementById('email').value;
-    let pass = document.getElementById('password').value;
-    let pass1 = document.getElementById('password1').value;
-    if(name == "" || lastname == "" || email == "" || pass == "" || pass1 == ""){
-        alert("Fill in the entire field!!!");
+let myInput2 = document.getElementById('email');
+
+myInput2.onfocus = function() {
+    myInput2.onkeyup = function(){
+        if(validateEmail(myInput2.value)){
+            document.getElementById('message2').style.display = 'none';
+        }
+        else{
+            document.getElementById('message2').style.display = 'block';
+        }
     }
+}
+
+myInput2.onblur = function() {
+    document.getElementById("message2").style.display = "none";
+}
+
+function validateEmail(email1) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email1);
 }
 </script>
 
-
+<?php 
+            if(isset($_POST['submit'])){
+                if($_POST['FirstName'] != "" && $_POST['LastName'] != "" && $_POST['EmailAddress'] != "" && $_POST['Password'] != "" && $_POST['PasswordAgain'] != ""){
+                    if($_POST["Password"] == $_POST["PasswordAgain"]){
+                        $em = $_POST['EmailAddress'];
+                        if(!(filter_var($em, FILTER_VALIDATE_EMAIL))){
+                            echo '<script>alert("Invalid account format");</script>';
+                        }
+                        else{
+                            $mycon = mysqli_connect('localhost','root','','verse');
+                            mysqli_select_db($mycon,'verse');
+                            $q  = $_POST['EmailAddress'];
+                            $query = "SELECT * FROM `verse` WHERE `email`= '$q'";
+                            $res = mysqli_query($mycon,$query);
+                            $b = mysqli_num_rows($res);
+                            if($b == 0){
+                                $months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                                $name = $_POST['FirstName'];
+                                $lname = $_POST['LastName'];
+                                $d = $_POST['days'];
+                                $m = $months[$_POST['month']];
+                                $y = $_POST['year'];
+                                $e = $_POST['EmailAddress'];
+                                $pass = $_POST['Password'];
+                                $sql = mysqli_query($mycon,"INSERT INTO `verse` (`firstname`, `lastname`, `year`,`email`,`password`) VALUES ('$name', '$lname','$d/$m/$y','$e','$pass')");
+                            }
+                            else{
+                                echo "<script>alert('An account already exists with this mailing address');</script>";
+                            }
+                            mysqli_close($mycon);        
+                        }
+                    }
+                    else{
+                        echo '<script>alert("Different Passwords");</script>';
+                    }
+                }
+                else{
+                    echo '<script>alert("Fill in the entire field!!!");</script>';
+                }  
+            }
+        ?>
