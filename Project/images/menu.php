@@ -30,14 +30,15 @@
 	}
 ?>
 <div class="LeftPart">
-	<nav class="Function">
-		<a href="#"><img src="<?php echo $user; ?>"> My Profile</a>
-		<a href="#"><img src="<?php echo $music_player; ?>"> Music </a>
+	<form class="Function">
+		<a href="index.php"><img src="<?php echo $user; ?>"> My Profile</a>
+		<a href=""><img src="<?php echo $music_player; ?>"> Music </a>
 		<a href="#"><img src="<?php echo $video_player; ?>"> Video </a>
-		<a href="#"><img src="<?php echo $photo_camera; ?>"> Photo </a>
-		<a href="#"><img src="<?php echo $search; ?>"> Search </a>
-		<a href="#"><img src="<?php echo $users; ?>"> Contacts </a>
-		<a href="#"><img src="<?php echo $file; ?>"> About us </a>
-		<a href="#"><img src="<?php echo $settings; ?>"> Settings </a>
-	</nav>
+		<a href="index.php?menu=photo"><img src="<?php echo $photo_camera; ?>"> Photo </a>
+		<a href="index.php?menu=search"><img src="<?php echo $search; ?>"> Search </a>
+		<a href="index.php?menu=contacts"><img src="<?php echo $users; ?>"> Contacts </a>
+		<a href="index.php?menu=aboutUs"><img src="<?php echo $file; ?>"> About us </a>
+		<a href="index.php?menu=settings"><img src="<?php echo $settings; ?>"> Settings </a>
+	</form>
 </div>
+
