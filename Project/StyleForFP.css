@@ -1,13 +1,19 @@
 body{
-    margin: 0;
+	margin: 0;
+	display: grid;
+	grid-template-areas: "header header header"
+						 "menu content menu"
+						 "footer footer footer";
+	grid-template-rows: 50px auto 200px;
+	grid-template-columns: 40% 20% 40%;
 }
 header{
+	grid-area: header;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: brown;
 	color: white;
-	height: 50px;
 }
 
 header p{
@@ -16,8 +22,9 @@ header p{
 }
 
 form{
+	grid-area: content;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 .form{
@@ -38,9 +45,8 @@ button{
 	width: 100px;
 	height: 20px;
 }
-
-.Top{
-	display: flex;
-	flex-direction: column;
+footer{
+	grid-area: footer;
+	position: absolute;
+	bottom: 0;
 }
-

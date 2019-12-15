@@ -1,6 +1,6 @@
 <title>Login</title>
 <form action="#" method="POST">
-        <div class="form">
+        <div>
             <div>
 			    <p> Email <input type="text" name="Email"></p>
 			    <p> Password <input type="password" id="password" name="Password"><input type="checkbox" onclick="onClick()">Show Password</p>
@@ -37,12 +37,14 @@ function onClick(){
                 echo "<script>alert('Account does not exist with this mailing address');</script>";
             }
             else{
-                if($b['email'] == $_POST['Email'] && $b['password'] == $_POST['Password']){
-                    header('Location : index.php');
-                    exit();
-                }
-                else{
-                    echo "<script>alert('Login or password is not correct');</script>";
+                while($row = mysqli_fetch_array($res)){
+                    if($row['email'] == $_POST['Email'] && $row['password'] == $_POST['Password']){
+                        header("Location: index.php");
+                        exit();
+                    }
+                    else{
+                        echo "<script>alert('Login or password is not correct');</script>";
+                    }
                 }
             }
             mysqli_close($mycon);

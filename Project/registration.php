@@ -229,6 +229,8 @@ function validateEmail(email1) {
                                 $e = $_POST['EmailAddress'];
                                 $pass = $_POST['Password'];
                                 $sql = mysqli_query($mycon,"INSERT INTO `verse` (`firstname`, `lastname`, `year`,`email`,`password`) VALUES ('$name', '$lname','$d/$m/$y','$e','$pass')");
+                                header("Location: index.php");
+                                exit();
                             }
                             else{
                                 echo "<script>alert('An account already exists with this mailing address');</script>";
