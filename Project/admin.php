@@ -13,6 +13,7 @@
 <div class="LeftPart">
     <form class="Function">
         <a href="admin.php?menu=main">Main</a>
+        <a href="admin.php?menu=users">Users</a>
         <a href="admin.php?menu=photo">Photo</a>
         <a href="admin.php?menu=video">Video</a>
         <a href="admin.php?menu=music">Music</a>
@@ -65,7 +66,37 @@ function drawChart() {
 				
 			</div>
 			<?php
-		}
     }
-    
+    if($_REQUEST['menu'] == 'users'){
+      ?>
+      <div class="RightPart">
+				<div style="font-size: 28px; margin-top: 10px">USERS</div>
+				<div>
+          <?php 
+          $mycon = mysqli_connect('localhost','root','','verse');
+					mysqli_select_db($mycon,'verse');
+          $result = mysqli_query($mycon,"SELECT * FROM `verse`");
+          while($row = mysqli_fetch_array($result)){
+            $id = "submit[".$row['id']."]";
+            $inf = $row['firstname']." ".$row['lastname'];
+            $img = $row['profile_img'];
+            echo "<div class='admin_inf'><img src='$img' style='width:50px;height:50px'> <div>$inf</div><form action='#'  method='post'><button type='submit' name='$id'>Delete</button></form></div>";
+          }
+          mysqli_close($mycon);
+          ?>
+        </div>
+			</div>
+      <?php
+    }
+    }
+
+    if(isset($_POST['submit'])){
+      $k = key($_POST['submit']);
+      $mycon = mysqli_connect('localhost','root','','verse');
+			mysqli_select_db($mycon,'verse');
+      mysqli_query($mycon,"DELETE FROM `verse` WHERE `id`='$k'");
+      mysqli_query($mycon,"DELETE FROM `cookie` WHERE `id_user`='$k'");
+      setcookie('user',"",time() - 3600*24*30,"/");
+      mysqli_close($mycon);
+    }
 ?>

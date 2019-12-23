@@ -19,8 +19,20 @@
 		<div class="RightPart">
 			<div class="Prof">
 				<div class="Inf">
-					<b>Kozhakhmet Magzhan</b></br>
-					01/06/2001</br>
+					<b><?php 
+					$mycon = mysqli_connect('localhost','root','','verse');
+					mysqli_select_db($mycon,'verse');
+					$c = $_COOKIE['user'];
+					$result = mysqli_query($mycon,"SELECT * FROM `cookie` WHERE md5_user='$c'");
+					while($row = mysqli_fetch_array($result)){
+						$id = $row['id_user'];
+					}
+					$res = mysqli_query($mycon,"SELECT * FROM `verse` WHERE `id`='$id'");
+					while($row = mysqli_fetch_array($res)){
+						$name = $row['firstname']." ".$row['lastname'];
+						echo $name;
+					?></b></br>
+					<?php echo $row['year']; } ?></br>
 					<b>Status</b></br>
 					AAAAAAAAAAAAAAAAAA</br>
 					<div class="InfAboutMedia">
@@ -38,7 +50,31 @@
 						</div>
 					</div>
 				</div>
-				<img src="images/logo.png">
+				<div class="PROFILE">
+					<?php 
+						$mycon = mysqli_connect('localhost','root','','verse');
+						mysqli_select_db($mycon,'verse');
+						$c = $_COOKIE['user'];
+						$result = mysqli_query($mycon,"SELECT * FROM `cookie` WHERE md5_user='$c'");
+						while($row = mysqli_fetch_array($result)){
+							$id = $row['id_user'];
+						}
+						$res = mysqli_query($mycon,"SELECT * FROM `verse` WHERE `id`='$id'");
+						while($row = mysqli_fetch_array($res)){
+							$img = $row['profile_img'];
+							echo "<img src='$img' id='prof_img'>";
+						}
+					?>
+					<form method="post" action="" enctype="multipart/form-data">
+  						<div>
+    						<label for="profile_pic">Choose file</label>
+    						<input type="file" id="profile_pic" name="profile_pic" accept=".jpg, .jpeg, .png">
+  						</div>
+  						<div>
+    						<input type="submit" name="SUB" value="Submit">
+  						</div>
+					</form>
+				</div>
 			</div>
 
 			<div class="Move">
@@ -207,5 +243,29 @@
 			echo "<b>OK</b>";
 		}
 		mysqli_close($mycon);
+	}
+	if(isset($_POST['SUB'])){
+		if($_FILES['profile_pic']['size'] != 0){
+			$mycon = mysqli_connect('localhost','root','','verse');
+			mysqli_select_db($mycon,'verse');
+			$c = $_COOKIE['user'];
+			$result = mysqli_query($mycon,"SELECT * FROM `cookie` WHERE md5_user='$c'");
+			while($row = mysqli_fetch_array($result)){
+				$i = $row['id_user'];
+				$name = $_FILES['profile_pic']['name'];
+  				$target_dir = "upload/";
+  				$target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
+				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  				$extensions_arr = array("jpg","jpeg","png");
+  				if( in_array($imageFileType,$extensions_arr) ){
+    				$image_base64 = base64_encode(file_get_contents($_FILES['profile_pic']['tmp_name']) );
+    				$image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+    				$query = "UPDATE `verse` SET profile_img='$image' WHERE `id`='$i'";
+    				mysqli_query($mycon,$query);
+    				move_uploaded_file($_FILES['profile_pic']['tmp_name'],$target_dir.$name);
+  				}
+			}
+			mysqli_close($mycon);
+		}
 	}
 ?>
