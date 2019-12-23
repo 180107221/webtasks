@@ -27,7 +27,16 @@
 		if($row['id']==8){
 			$video_player = $row['image'];
 		}
+		if($row['id'] == 9){
+			$exit = $row['image'];
+		}
 	}
+
+	if(isset($_REQUEST['submit'])){
+		setcookie('user',"",time() - 3600*24*30,"/");
+		echo '<script type="text/javascript">location.replace("FirstPage.php");</script>';
+	}
+
 ?>
 <div class="LeftPart">
 	<form class="Function">
@@ -39,6 +48,7 @@
 		<a href="index.php?menu=contacts"><img src="<?php echo $users; ?>"> Contacts </a>
 		<a href="index.php?menu=aboutUs"><img src="<?php echo $file; ?>"> About us </a>
 		<a href="index.php?menu=settings"><img src="<?php echo $settings; ?>"> Settings </a>
+		<button class="button" type="submit" name="submit"><img src="<?php echo $exit; ?>"> Exit</button>
 	</form>
 </div>
 
